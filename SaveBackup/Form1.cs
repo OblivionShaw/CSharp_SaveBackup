@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
+using SaveBackup.Properties;
 
 namespace SaveBackup
 {
@@ -21,6 +22,8 @@ namespace SaveBackup
         {
             sourcePath = Properties.Settings.Default.SourcePath;
             backupPath = Properties.Settings.Default.BackupPath;
+            SaveLocalLabel.Text = sourcePath;
+            BackupLocalLabel.Text = backupPath;
         }
 
         public Form1()
@@ -43,6 +46,13 @@ namespace SaveBackup
                     // 保存設定
                     Properties.Settings.Default.SourcePath = sourcePath;
                     Properties.Settings.Default.Save();
+                    //Properties.Settings.Default.Reload();
+                    //Properties.Settings.Default.Upgrade();
+                    //Application.Restart();
+
+                    // 讀取並顯示設定
+                    string savedSourcePath = Properties.Settings.Default.SourcePath;
+                    Debug.WriteLine("Saved SourcePath: " + savedSourcePath);
                 }
             }
         }
@@ -80,6 +90,14 @@ namespace SaveBackup
                 SaveBackupTips.Text = "備份失敗: " + ex.Message;
             }
 
+        }
+
+        private void FileLocalSaveButton_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.SourcePath = sourcePath;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.BackupPath = backupPath;
+            Properties.Settings.Default.Save();
         }
     }
 }

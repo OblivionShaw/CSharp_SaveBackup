@@ -35,6 +35,7 @@ namespace SaveBackup
             this.BackupLocalLabel = new System.Windows.Forms.Label();
             this.SaveBackupButton = new System.Windows.Forms.Button();
             this.SaveBackupTips = new System.Windows.Forms.Label();
+            this.FileLocalSaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SaveLocalButton
@@ -94,11 +95,22 @@ namespace SaveBackup
             this.SaveBackupTips.TabIndex = 5;
             this.SaveBackupTips.Text = "label3";
             // 
+            // FileLocalSaveButton
+            // 
+            this.FileLocalSaveButton.Location = new System.Drawing.Point(142, 219);
+            this.FileLocalSaveButton.Name = "FileLocalSaveButton";
+            this.FileLocalSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.FileLocalSaveButton.TabIndex = 6;
+            this.FileLocalSaveButton.Text = "button1";
+            this.FileLocalSaveButton.UseVisualStyleBackColor = true;
+            this.FileLocalSaveButton.Click += new System.EventHandler(this.FileLocalSaveButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.FileLocalSaveButton);
             this.Controls.Add(this.SaveBackupTips);
             this.Controls.Add(this.SaveBackupButton);
             this.Controls.Add(this.BackupLocalLabel);
@@ -120,6 +132,7 @@ namespace SaveBackup
         private System.Windows.Forms.Label BackupLocalLabel;
         private System.Windows.Forms.Button SaveBackupButton;
         private System.Windows.Forms.Label SaveBackupTips;
+        private System.Windows.Forms.Button FileLocalSaveButton;
     }
 }
 
